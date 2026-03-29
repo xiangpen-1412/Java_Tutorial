@@ -1,0 +1,222 @@
+{
+  "main": {
+    "id": "0b1ce22fcc114729",
+    "type": "split",
+    "children": [
+      {
+        "id": "eef73d1e92483fc5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "93510eab6c914b53",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "99-Errors/01-File IO.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "01-File IO"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "482233dbb273725c",
+    "type": "split",
+    "children": [
+      {
+        "id": "03598f76f98a9dc3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8ea7fde22d2a4b93",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "f1cf3af24068c8a4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "3749282cc6904304",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 273.5
+  },
+  "right": {
+    "id": "ea7cd8977c951176",
+    "type": "split",
+    "children": [
+      {
+        "id": "229d53b7fc819f16",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6381d046f603453d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "4d664e87cddd0f5b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "375d32ff424b7734",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "5dcc0e788f9ef51e",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "effba4215ece78c7",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "8ea7fde22d2a4b93",
+  "lastOpenFiles": [
+    "00-Preliminary/01-Running-Procedure.md",
+    "99-Errors/01-File IO.md",
+    "99-Errors",
+    "04-Java-Advanced/04-Data Processing/02-Pattern-Matching.md",
+    "04-Java-Advanced/05-Core Utilities/01-Compare.md",
+    "04-Java-Advanced/04-Data Processing/01-Stream.md",
+    "04-Java-Advanced/05-Core Utilities/04-Date-Time.md",
+    "01-Java-Basics/05-Mutable-Immutable.md",
+    "01-Java-Basics/01-Types.md",
+    "04-Java-Advanced/05-Core Utilities/03-Random.md",
+    "04-Java-Advanced/05-Core Utilities/02-Math.md",
+    "04-Java-Advanced/05-Core Utilities",
+    "04-Java-Advanced/03-Collections Internals/02-Hashing.md",
+    "04-Java-Advanced/04-Data Processing",
+    "04-Java-Advanced/03-Collections Internals/01-Iterator.md",
+    "04-Java-Advanced/02-Functional Programming/02-Comsumer & Predicate.md",
+    "04-Java-Advanced/03-Collections Internals",
+    "04-Java-Advanced/02-Functional Programming/01-Lambda.md",
+    "04-Java-Advanced/01-Type System/03-Optional.md",
+    "04-Java-Advanced/02-Functional Programming",
+    "04-Java-Advanced/01-Type System/02-Generic.md",
+    "04-Java-Advanced/01-Type System/01-Record.md",
+    "04-Java-Advanced/01-Type System",
+    "01-Java-Basics/03-Control-Flow.md",
+    "01-Java-Basics/04-Formatters.md",
+    "01-Java-Basics/02-Operators.md",
+    "03-Data-Structure/Map/03-TreeMap.md",
+    "03-Data-Structure/Map/02-LinkedHashMap.md",
+    "00-Preliminary/02-Memory-Structure.md",
+    "03-Data-Structure/Map/01-HashMap.md",
+    "03-Data-Structure/Map/00-Map.md",
+    "03-Data-Structure/Set/01-HashSet.md",
+    "03-Data-Structure/Map",
+    "03-Data-Structure/Collection",
+    "03-Data-Structure/List",
+    "03-Data-Structure/Set"
+  ]
+}
