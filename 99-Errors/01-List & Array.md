@@ -1,4 +1,5 @@
 ___
+# 1. List & Array Conversion
 ## Core Confusion
 
 When converting between **array**, **List**, and **ArrayList**, the biggest source of mistakes is that Java treats:
@@ -437,3 +438,5 @@ Easy conversion.
 Needs boxing / unboxing.
 
 That is the core reason why array/list conversion in Java feels inconsistent.
+
+___

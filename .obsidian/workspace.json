@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-Algorithms/Recursion Summary.md",
+                "file": "05-Java-Advanced/07-Thread/Thread.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Recursion Summary"
+              "title": "Thread"
             }
           }
         ]
@@ -180,12 +180,25 @@
       "bases:Create new base": false
     }
   },
-  "active": "93510eab6c914b53",
+  "active": "8ea7fde22d2a4b93",
   "lastOpenFiles": [
+    "05-Java-Advanced/07-Thread",
+    "05-Java-Advanced/06-IO/Java IO.md",
+    "05-Java-Advanced/07-Thread/Thread.md",
     "00-Algorithms/02-Search/01-BFS&DFS.md",
+    "Untitled",
+    "00-Algorithms/01-Tree/05-Red-Black-Tree.md",
+    "04-Data-Structure/Map/01-HashMap.md",
+    "99-Errors/01-List & Array.md",
+    "99-Errors/03-Generics.md",
+    "05-Java-Advanced/04-Data Processing/01-Stream.md",
+    "00-Algorithms/01-Tree/04-AVL-Tree.md",
+    "Pasted image 20260402174414.png",
+    "00-Algorithms/01-Tree/02-Binary-Search-Tree.md",
+    "00-Algorithms/01-Tree/03-Balanced-Search-Tree.md",
+    "Pasted image 20260402170605.png",
     "00-Algorithms/Recursion Summary.md",
     "00-Algorithms/Untitled",
-    "00-Algorithms/01-Tree/Untitled.md",
     "00-Algorithms/02-Search",
     "00-Algorithms/01-Tree/01-Binary-Tree.md",
     "00-Algorithms/02-Search",
@@ -201,22 +214,11 @@
     "01-Preliminary/01-Running-Procedure.md",
     "04-Data-Structure/Queue/01-Priority Queue.md",
     "04-Data-Structure/Queue",
-    "99-Errors/01-List & Array.md",
     "00-Algorithms",
     "99-Errors/02-File IO.md",
     "02-Java-Basics/03-Control-Flow.md",
     "02-Java-Basics/05-Mutable-Immutable.md",
-    "05-Java-Advanced/06-IO/Java IO.md",
     "05-Java-Advanced/05-Core Utilities/01-Date-Time.md",
-    "05-Java-Advanced/06-IO",
-    "05-Java-Advanced/04-Data Processing/03-Compare.md",
-    "99-Errors",
-    "05-Java-Advanced/04-Data Processing/02-Pattern-Matching.md",
-    "05-Java-Advanced/04-Data Processing/01-Stream.md",
-    "02-Java-Basics/01-Types.md",
-    "05-Java-Advanced/05-Core Utilities/03-Random.md",
-    "05-Java-Advanced/05-Core Utilities/02-Math.md",
-    "05-Java-Advanced/03-Collections Internals/02-Hashing.md",
-    "05-Java-Advanced/03-Collections Internals/01-Iterator.md"
+    "05-Java-Advanced/06-IO"
   ]
 }
