@@ -667,6 +667,8 @@ Very common in interviews:
 
 - Next Greater Element
     
+- [[05-Next Greater Element II|503. Next Greater Element II]]
+    
 - Daily Temperatures
     
 - Largest Rectangle in Histogram
