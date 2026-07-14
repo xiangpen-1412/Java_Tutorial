@@ -7,7 +7,7 @@
 - 第一批基础题：20 题
 - 第二批基础加强题：20 题
 - 第三批进阶入门题：18 题
-- 当前累计完成：**58 题**
+- 当前累计完成：**61 题**
 
 已经覆盖的能力：
 
@@ -21,6 +21,7 @@
 - Backtracking：子集、排列、组合、组合总和
 - Prefix Sum：一维前缀和、HashMap 前缀和计数、前后缀乘积
 - Basic DP：一维 DP、状态转移、打家劫舍、最大子数组
+- Graph 基础：边列表、邻接表、网格图、DFS / BFS、`visited`
 
 ---
 
@@ -180,6 +181,14 @@
 | 121      | Best Time to Buy and Sell Stock | ⭐⭐⭐     |
 | 53       | Maximum Subarray                | ⭐⭐⭐⭐    |
 
+### 06. Graph 基础铺垫
+
+| LeetCode | Problem                              | Priority |
+| -------- | ------------------------------------ | -------- |
+| 1791     | Find Center of Star Graph            | ✅ 已完成 |
+| 1971     | Find if Path Exists in Graph         | ✅ 已完成 |
+| 733      | Flood Fill                           | ✅ 已完成 |
+
 ---
 
 ## 阶段总结
@@ -272,21 +281,26 @@
 
 ### 04. Graph / BFS / DFS
 
-已完成：`200. Number of Islands`、`695. Max Area of Island`。
+已完成：`1791. Find Center of Star Graph`、`1971. Find if Path Exists in Graph`、`733. Flood Fill`、`200. Number of Islands`、`695. Max Area of Island`。
 
-接下来按“网格图 → 邻接表 DFS → 入度 → 拓扑排序”的顺序继续：
+接下来按“网格图 → 邻接表 DFS → 入度 → 拓扑排序”的顺序继续，不要直接从 `207` 开始。先完成非网格图遍历和邻接表的铺垫，再接触有向图环检测。
 
-| LeetCode | Problem                                       | Priority |
-| -------- | --------------------------------------------- | -------- |
-| 200      | Number of Islands                             | ⭐⭐⭐⭐⭐    |
-| 695      | Max Area of Island                            | ⭐⭐⭐⭐     |
-| 797      | All Paths From Source to Target               | ⭐⭐⭐⭐     |
-| 841      | Keys and Rooms                                | ⭐⭐⭐      |
-| 1557     | Minimum Number of Vertices to Reach All Nodes | ⭐⭐⭐      |
-| 207      | Course Schedule                               | ⭐⭐⭐⭐⭐    |
-| 210      | Course Schedule II                            | ⭐⭐⭐⭐⭐    |
-| 994      | Rotting Oranges                               | ⭐⭐⭐⭐⭐    |
-| 133      | Clone Graph                                   | ⭐⭐⭐⭐     |
+| LeetCode | Problem                                       | Priority  |
+| -------- | --------------------------------------------- | --------- |
+| 1791     | Find Center of Star Graph                     | ✅ 已完成 |
+| 1971     | Find if Path Exists in Graph                  | ✅ 已完成 |
+| 733      | Flood Fill                                    | ✅ 已完成 |
+| 200      | Number of Islands                             | ✅ 已完成 |
+| 695      | Max Area of Island                            | ✅ 已完成 |
+| 994      | Rotting Oranges                               | ⭐⭐⭐⭐⭐  |
+| 797      | All Paths From Source to Target               | ⭐⭐⭐⭐   |
+| 841      | Keys and Rooms                                | ⭐⭐⭐⭐   |
+| 1557     | Minimum Number of Vertices to Reach All Nodes | ⭐⭐⭐     |
+| 133      | Clone Graph                                   | ⭐⭐⭐⭐   |
+| 207      | Course Schedule                               | ⭐⭐⭐⭐⭐  |
+| 210      | Course Schedule II                            | ⭐⭐⭐⭐⭐  |
+
+`841` 训练非网格图的 DFS / BFS 与 `visited`；`133` 训练图节点、邻居列表和防止重复访问。它们是进入 `207` 前的必要铺垫。
 
 ### 05. Tree 进阶
 
@@ -346,15 +360,18 @@
 347
 973
 295
+1791
+1971
+733
 200
 695
+994
 797
 841
 1557
+133
 207
 210
-994
-133
 236
 230
 105
