@@ -181,14 +181,6 @@
 | 121      | Best Time to Buy and Sell Stock | ⭐⭐⭐     |
 | 53       | Maximum Subarray                | ⭐⭐⭐⭐    |
 
-### 06. Graph 基础铺垫
-
-| LeetCode | Problem                              | Priority |
-| -------- | ------------------------------------ | -------- |
-| 1791     | Find Center of Star Graph            | ✅ 已完成 |
-| 1971     | Find if Path Exists in Graph         | ✅ 已完成 |
-| 733      | Flood Fill                           | ✅ 已完成 |
-
 ---
 
 ## 阶段总结
@@ -285,20 +277,20 @@
 
 接下来按“网格图 → 邻接表 DFS → 入度 → 拓扑排序”的顺序继续，不要直接从 `207` 开始。先完成非网格图遍历和邻接表的铺垫，再接触有向图环检测。
 
-| LeetCode | Problem                                       | Priority  |
-| -------- | --------------------------------------------- | --------- |
-| 1791     | Find Center of Star Graph                     | ✅ 已完成 |
-| 1971     | Find if Path Exists in Graph                  | ✅ 已完成 |
-| 733      | Flood Fill                                    | ✅ 已完成 |
-| 200      | Number of Islands                             | ✅ 已完成 |
-| 695      | Max Area of Island                            | ✅ 已完成 |
-| 994      | Rotting Oranges                               | ⭐⭐⭐⭐⭐  |
-| 797      | All Paths From Source to Target               | ⭐⭐⭐⭐   |
-| 841      | Keys and Rooms                                | ⭐⭐⭐⭐   |
-| 1557     | Minimum Number of Vertices to Reach All Nodes | ⭐⭐⭐     |
-| 133      | Clone Graph                                   | ⭐⭐⭐⭐   |
-| 207      | Course Schedule                               | ⭐⭐⭐⭐⭐  |
-| 210      | Course Schedule II                            | ⭐⭐⭐⭐⭐  |
+| LeetCode | Problem                                       | Priority |
+| -------- | --------------------------------------------- | -------- |
+| 1791     | Find Center of Star Graph                     | ✅ 已完成    |
+| 1971     | Find if Path Exists in Graph                  | ✅ 已完成    |
+| 733      | Flood Fill                                    | ✅ 已完成    |
+| 200      | Number of Islands                             | ✅ 已完成    |
+| 695      | Max Area of Island                            | ✅ 已完成    |
+| 994      | Rotting Oranges                               | ⭐⭐⭐⭐⭐    |
+| 797      | All Paths From Source to Target               | ⭐⭐⭐⭐     |
+| 841      | Keys and Rooms                                | ⭐⭐⭐⭐     |
+| 1557     | Minimum Number of Vertices to Reach All Nodes | ⭐⭐⭐      |
+| 133      | Clone Graph                                   | ⭐⭐⭐⭐     |
+| 207      | Course Schedule                               | ⭐⭐⭐⭐⭐    |
+| 210      | Course Schedule II                            | ⭐⭐⭐⭐⭐    |
 
 `841` 训练非网格图的 DFS / BFS 与 `visited`；`133` 训练图节点、邻居列表和防止重复访问。它们是进入 `207` 前的必要铺垫。
 
