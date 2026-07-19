@@ -6,18 +6,18 @@
 
 ## 1. 已覆盖的图模型
 
-| 题目 | 题目真正问什么 | 图模型 | 核心工具 |
-| --- | --- | --- | --- |
-| [[00-1791 - Find Center of Star Graph]] | 哪个节点和其他所有节点直接相连？ | 无向星型图 | 度 / 边的公共端点 |
-| [[01-1971 - Find if Path Exists in Graph]] | `source` 能否沿边到达 `destination`？ | 无向图 | DFS、BFS、并查集 |
-| [[02-733 - Flood Fill]] | 修改起点所在的同色连通区域 | 隐式网格图 | 单源 DFS / BFS |
-| [[03-200 - Number of Islands]] | 网格里有多少个陆地连通分量？ | 隐式网格图 | 全局扫描 + DFS / BFS |
-| [[03A-695 - Max Area of Island]] | 最大陆地连通分量包含多少格？ | 隐式网格图 | 全局扫描 + 分量大小 |
-| [[04-841 - Keys and Rooms]] | 从节点 `0` 出发能否访问所有节点？ | 有向图 | DFS / BFS + `visited` |
-| [[05-1557 - Minimum Number of Vertices to Reach All Nodes]] | DAG 中哪些节点必须作为起点，才能覆盖所有节点？ | 有向无环图 | 入度为 0 |
-| [[06-994 - Rotting Oranges]] | 多个起点同时扩散，全部完成最少几轮？ | 隐式网格图 | 多源、分层 BFS |
-| [[07-207 - Course Schedule]] | 课程依赖中是否存在循环，导致无法完成全部课程？ | 有向图 | 拓扑排序 / 环检测 |
-| [[04-797-All Paths From Source to Target]] | 找出 DAG 中从 `0` 到 `n - 1` 的所有路径 | 有向无环图 | DFS + 回溯 |
+| 题目                                                          | 题目真正问什么                        | 图模型   | 核心工具                  |
+| ----------------------------------------------------------- | ------------------------------ | ----- | --------------------- |
+| [[00-1791 - Find Center of Star Graph]]                     | 哪个节点和其他所有节点直接相连？               | 无向星型图 | 度 / 边的公共端点            |
+| [[01-1971 - Find if Path Exists in Graph]]                  | `source` 能否沿边到达 `destination`？ | 无向图   | DFS、BFS、并查集           |
+| [[02-733 - Flood Fill]]                                     | 修改起点所在的同色连通区域                  | 隐式网格图 | 单源 DFS / BFS          |
+| [[03-200 - Number of Islands]]                              | 网格里有多少个陆地连通分量？                 | 隐式网格图 | 全局扫描 + DFS / BFS      |
+| [[03A-695 - Max Area of Island]]                            | 最大陆地连通分量包含多少格？                 | 隐式网格图 | 全局扫描 + 分量大小           |
+| [[04-841 - Keys and Rooms]]                                 | 从节点 `0` 出发能否访问所有节点？            | 有向图   | DFS / BFS + `visited` |
+| [[05-1557 - Minimum Number of Vertices to Reach All Nodes]] | DAG 中哪些节点必须作为起点，才能覆盖所有节点？      | 有向无环图 | 入度为 0                 |
+| [[06-994 - Rotting Oranges]]                                | 多个起点同时扩散，全部完成最少几轮？             | 隐式网格图 | 多源、分层 BFS             |
+| [[07-207 - Course Schedule]]                                | 课程依赖中是否存在循环，导致无法完成全部课程？        | 有向图   | 拓扑排序 / 环检测            |
+| [[04-797-All Paths From Source to Target]]                  | 找出 DAG 中从 `0` 到 `n - 1` 的所有路径  | 有向无环图 | DFS + 回溯              |
 
 ## 2. 这些题不是因为“长得像”才用同一种算法
 

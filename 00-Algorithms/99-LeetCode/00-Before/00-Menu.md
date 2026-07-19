@@ -277,45 +277,111 @@
 
 接下来按“网格图 → 邻接表 DFS → 入度 → 拓扑排序”的顺序继续，不要直接从 `207` 开始。先完成非网格图遍历和邻接表的铺垫，再接触有向图环检测。
 
-| LeetCode | Problem                                       | Priority |
-| -------- | --------------------------------------------- | -------- |
-| 1791     | Find Center of Star Graph                     | ✅ 已完成    |
-| 1971     | Find if Path Exists in Graph                  | ✅ 已完成    |
-| 733      | Flood Fill                                    | ✅ 已完成    |
-| 200      | Number of Islands                             | ✅ 已完成    |
-| 695      | Max Area of Island                            | ✅ 已完成    |
-| 994      | Rotting Oranges                               | ⭐⭐⭐⭐⭐    |
-| 797      | All Paths From Source to Target               | ⭐⭐⭐⭐     |
-| 841      | Keys and Rooms                                | ⭐⭐⭐⭐     |
-| 1557     | Minimum Number of Vertices to Reach All Nodes | ⭐⭐⭐      |
-| 133      | Clone Graph                                   | ⭐⭐⭐⭐     |
-| 207      | Course Schedule                               | ⭐⭐⭐⭐⭐    |
-| 210      | Course Schedule II                            | ⭐⭐⭐⭐⭐    |
+| LeetCode | Problem                                       | Priority  |
+| -------- | --------------------------------------------- | --------- |
+| 1791     | Find Center of Star Graph                     | ✅ 已完成 |
+| 1971     | Find if Path Exists in Graph                  | ✅ 已完成 |
+| 733      | Flood Fill                                    | ✅ 已完成 |
+| 200      | Number of Islands                             | ✅ 已完成 |
+| 695      | Max Area of Island                            | ✅ 已完成 |
+| 994      | Rotting Oranges                               | ⭐⭐⭐⭐⭐  |
+| 797      | All Paths From Source to Target               | ⭐⭐⭐⭐   |
+| 841      | Keys and Rooms                                | ⭐⭐⭐⭐   |
+| 1557     | Minimum Number of Vertices to Reach All Nodes | ⭐⭐⭐     |
+| 133      | Clone Graph                                   | ⭐⭐⭐⭐   |
+| 207      | Course Schedule                               | ⭐⭐⭐⭐⭐  |
+| 210      | Course Schedule II                            | ⭐⭐⭐⭐⭐  |
+| 802      | Find Eventual Safe States                     | ⭐⭐⭐⭐   |
+| 310      | Minimum Height Trees                          | ⭐⭐⭐⭐   |
 
-`841` 训练非网格图的 DFS / BFS 与 `visited`；`133` 训练图节点、邻居列表和防止重复访问。它们是进入 `207` 前的必要铺垫。
+
+`841` 训练非网格图的 DFS / BFS 与 `visited`；`133` 训练图节点、邻居列表和防止重复访问。它们是进入 `207` 前的必要铺垫。完成 `207` 后不要立刻切换专题：`210` 继续练标准拓扑序，`802` 练反向图和出度，`310` 用逐层剥离叶子理解拓扑思想的变形。
 
 ### 05. Tree 进阶
 
-| LeetCode | Problem                                                   | Priority |
-| -------- | --------------------------------------------------------- | -------- |
-| 236      | Lowest Common Ancestor of a Binary Tree                   | ⭐⭐⭐⭐⭐   |
-| 230      | Kth Smallest Element in a BST                             | ⭐⭐⭐⭐    |
-| 105      | Construct Binary Tree from Preorder and Inorder Traversal | ⭐⭐⭐⭐⭐   |
-| 114      | Flatten Binary Tree to Linked List                        | ⭐⭐⭐⭐    |
+已经完成的 `104、226、100、101、102、110、112、543、199、98` 已经覆盖基础 DFS / BFS、深度与高度、路径和 BST 验证。因此不再重复安排单纯遍历或搜索题，直接进入四个连续模块。
+
+#### 05.1 BST 中序性质与结构操作
+
+| LeetCode | Problem                                  | Goal                         |
+| -------- | ---------------------------------------- | ---------------------------- |
+| 230      | Kth Smallest Element in a BST            | 中序遍历的第 k 个节点         |
+| 530      | Minimum Absolute Difference in BST       | 中序相邻节点与前驱变量        |
+| 173      | Binary Search Tree Iterator              | 用栈控制惰性中序遍历          |
+| 450      | Delete Node in a BST                     | BST 查找、替换与结构修改      |
+
+#### 05.2 最近公共祖先与递归返回值
+
+| LeetCode | Problem                                  | Goal                         |
+| -------- | ---------------------------------------- | ---------------------------- |
+| 235      | Lowest Common Ancestor of a BST          | 先利用 BST 大小关系           |
+| 236      | Lowest Common Ancestor of a Binary Tree  | 去掉 BST 条件，设计递归返回值 |
+
+#### 05.3 根据遍历结果构造树
+
+| LeetCode | Problem                                                   | Goal                     |
+| -------- | --------------------------------------------------------- | ------------------------ |
+| 105      | Construct Binary Tree from Preorder and Inorder Traversal | 前序定根、中序切分子树   |
+| 106      | Construct Binary Tree from Inorder and Postorder Traversal | 后序定根、中序切分子树  |
+
+#### 05.4 Tree 综合题
+
+| LeetCode | Problem                              | Goal                               |
+| -------- | ------------------------------------ | ---------------------------------- |
+| 114      | Flatten Binary Tree to Linked List   | 遍历顺序、指针修改与递归组合       |
+| 124      | Binary Tree Maximum Path Sum         | 区分递归返回值与当前节点维护的答案 |
 
 ### 06. DP 第二层
 
-| LeetCode | Problem                        | Priority |
-| -------- | ------------------------------ | -------- |
-| 746      | Min Cost Climbing Stairs       | ⭐⭐⭐     |
-| 213      | House Robber II                | ⭐⭐⭐⭐    |
-| 322      | Coin Change                    | ⭐⭐⭐⭐⭐   |
-| 300      | Longest Increasing Subsequence | ⭐⭐⭐⭐⭐   |
-| 62       | Unique Paths                   | ⭐⭐⭐⭐    |
+已经完成的 `70、198、121、53` 覆盖了一维基础状态转移，因此不再安排与 `70` 高度重复的台阶题。下面按 DP 家族连续学习，不在不同模型之间来回跳。
+
+#### 06.1 打家劫舍模型
+
+| LeetCode | Problem          | Goal                         |
+| -------- | ---------------- | ---------------------------- |
+| 213      | House Robber II  | 从线性数组扩展到环形数组     |
+| 740      | Delete and Earn  | 把数值选择问题转换成打家劫舍 |
+| 337      | House Robber III | 把相邻约束扩展到树形 DP       |
+
+#### 06.2 网格与路径 DP
+
+| LeetCode | Problem             | Goal                       |
+| -------- | ------------------- | -------------------------- |
+| 62       | Unique Paths        | 二维路径 DP 的基础模型     |
+| 63       | Unique Paths II     | 加入障碍后的状态与初始化   |
+| 64       | Minimum Path Sum    | 从路径数量扩展到路径最值   |
+| 120      | Triangle            | 不规则网格与空间压缩       |
+
+#### 06.3 背包 DP
+
+在做题前先分别手写一次 `0/1 背包` 和 `完全背包` 小模型，明确物品能否重复使用以及容量的遍历方向。
+
+| Order | LeetCode | Problem                    | Goal                         |
+| ----- | -------- | -------------------------- | ---------------------------- |
+| 1     | 416      | Partition Equal Subset Sum | 0/1 背包：能否组成目标值     |
+| 2     | 322      | Coin Change                | 完全背包：组成目标的最少数量 |
+| 3     | 518      | Coin Change II             | 完全背包：组合数量           |
+| 4     | 377      | Combination Sum IV         | 完全背包：排列数量           |
+
+#### 06.4 LIS 序列 DP
+
+| LeetCode | Problem                                | Goal                           |
+| -------- | -------------------------------------- | ------------------------------ |
+| 300      | Longest Increasing Subsequence         | 先写 O(n²)，再写 O(n log n)    |
+| 673      | Number of Longest Increasing Subsequence | 在长度状态上增加方案数       |
+| 354      | Russian Doll Envelopes                 | 排序后转换为 LIS 的综合题      |
+
+#### 06.5 双序列 DP
+
+| LeetCode | Problem                    | Goal                           |
+| -------- | -------------------------- | ------------------------------ |
+| 1143     | Longest Common Subsequence | 两个序列的二维状态定义         |
+| 1035     | Uncrossed Lines            | 识别题目外壳下的 LCS 模型      |
+| 72       | Edit Distance              | 双序列 DP 的插入、删除与替换   |
 
 ---
 
-## Must Review
+## Must Review（完成对应专题后）
 
 | LeetCode | Problem                                        | Type                 |
 | -------- | ---------------------------------------------- | -------------------- |
@@ -336,41 +402,46 @@
 
 ---
 
-## 第四批 Recommended Order
+## 207 之后 Recommended Order
 
 ```text
-33
-153
-162
-875
-496
-1475
-901
-84
-907
-215
-347
-973
-295
-1791
-1971
-733
-200
-695
-994
-797
-841
-1557
-133
 207
 210
-236
+802
+310
+
 230
+530
+173
+450
+235
+236
 105
+106
 114
-746
+124
+
 213
-322
-300
+740
+337
+
 62
+63
+64
+120
+
+0/1 背包小模型
+416
+完全背包小模型
+322
+518
+377
+
+300（先 O(n²)，再 O(n log n)）
+673
+354
+
+1143
+1035
+72
 ```
