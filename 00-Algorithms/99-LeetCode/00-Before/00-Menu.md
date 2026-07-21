@@ -303,12 +303,12 @@
 
 #### 05.1 BST 中序性质与结构操作
 
-| LeetCode | Problem                                  | Goal                         |
-| -------- | ---------------------------------------- | ---------------------------- |
-| 230      | Kth Smallest Element in a BST            | 中序遍历的第 k 个节点         |
-| 530      | Minimum Absolute Difference in BST       | 中序相邻节点与前驱变量        |
-| 173      | Binary Search Tree Iterator              | 用栈控制惰性中序遍历          |
-| 450      | Delete Node in a BST                     | BST 查找、替换与结构修改      |
+| LeetCode | Problem                            | Goal           |
+| -------- | ---------------------------------- | -------------- |
+| 230      | Kth Smallest Element in a BST      | 中序遍历的第 k 个节点   |
+| 530      | Minimum Absolute Difference in BST | 中序相邻节点与前驱变量    |
+| 173      | Binary Search Tree Iterator        | 用栈控制惰性中序遍历     |
+| 450      | Delete Node in a BST               | BST 查找、替换与结构修改 |
 
 #### 05.2 最近公共祖先与递归返回值
 
