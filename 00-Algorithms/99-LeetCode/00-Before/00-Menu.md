@@ -319,10 +319,10 @@
 
 #### 05.3 根据遍历结果构造树
 
-| LeetCode | Problem                                                   | Goal                     |
-| -------- | --------------------------------------------------------- | ------------------------ |
-| 105      | Construct Binary Tree from Preorder and Inorder Traversal | 前序定根、中序切分子树   |
-| 106      | Construct Binary Tree from Inorder and Postorder Traversal | 后序定根、中序切分子树  |
+| LeetCode | Problem                                                    | Goal        |
+| -------- | ---------------------------------------------------------- | ----------- |
+| 105      | Construct Binary Tree from Preorder and Inorder Traversal  | 前序定根、中序切分子树 |
+| 106      | Construct Binary Tree from Inorder and Postorder Traversal | 后序定根、中序切分子树 |
 
 #### 05.4 Tree 综合题
 

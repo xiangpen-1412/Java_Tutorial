@@ -11,6 +11,12 @@
 | [[03-110-Balanced Binary Tree]] | 子树高度与全局性质 | 后序 DFS | 返回高度或不平衡信号 |
 | [[04-112-Path Sum]] | 根到叶路径判断 | DFS + 剩余目标 | 当前路径还需要多少和 |
 | [[05-98-Validate Binary Search Tree]] | 全局范围约束 | DFS + 上下界 | 当前节点允许的数值范围 |
+| [[06-230-Kth Smallest Element in a BST]] | BST 顺序统计 | 中序遍历 | 中序结果是升序序列 |
+| [[07-173-Binary Search Tree Iterator]] | 可暂停的中序遍历 | 栈 + 左链 | 栈顶是尚未访问的最小节点 |
+| [[08-530-Minimum Absolute Difference in BST]] | BST 有序相邻关系 | 中序遍历 + 前驱 | 最小差只会出现在升序相邻值中 |
+| [[09-450-Delete Node in a BST]] | BST 结构修改 | 递归 + 中序后继 | 返回删除后的子树新根 |
+| [[10-235-Lowest Common Ancestor of a Binary Search Tree]] | BST 双目标定位 | 递归 + 区间判断 | 当前根是否仍在两个目标的同一侧 |
+| [[11-236-Lowest Common Ancestor of a Binary Tree]] | 普通树双目标汇合 | 后序 DFS | 返回子树发现的目标或已经确定的 LCA |
 | [[00-Recursion Summary]] | 递归基础 | base case + recursive step | 明确函数契约 |
 
 ## 2. 写递归前先定义函数契约
@@ -31,6 +37,8 @@
 110：height(node) 返回子树高度，或返回不平衡信号
 112：dfs(node, remain) 表示是否存在满足剩余和的根到叶路径
 98：validate(node, low, high) 表示整棵子树是否落在合法范围内
+450：deleteNode(root, key) 返回删除 key 后的子树新根
+236：lowestCommonAncestor(root, p, q) 返回子树发现的目标或已经确定的 LCA
 ```
 
 ## 3. 对称树：两个位置必须交叉比较
@@ -123,7 +131,32 @@ node.left.val < node.val < node.right.val
 
 边界使用 `long`，避免节点值恰好为 `Integer.MIN_VALUE` 或 `Integer.MAX_VALUE` 时无法再设置更外层哨兵。
 
-## 8. DFS 与 BFS 的选择
+## 8. BST 删除：返回修改后的子树入口
+
+涉及树结构修改时，应把递归函数定义为：
+
+```text
+接收一棵子树，返回处理后的子树新根
+```
+
+因此：
+
+```java
+root.left = deleteNode(root.left, key);
+```
+
+表示把左子树交给递归，再接住它修改后的新根。若只改变了子树内部而当前节点仍在，则 `return root`；若删除的正是当前根，则根据结构返回 `null`、左孩子或右孩子。
+
+双孩子节点可用右子树最小值覆盖，再删除右子树中的该值。这个后继没有左孩子，第二次删除会退化成更简单的零孩子或单孩子情况。
+
+可记住树结构修改的通用方向：
+
+```text
+向下：大树拆成越来越小的子树
+向上：返回新根并逐层重新连接
+```
+
+## 9. DFS 与 BFS 的选择
 
 | 题目目标 | 优先考虑 |
 | --- | --- |
@@ -132,7 +165,7 @@ node.left.val < node.val < node.right.val
 | 同时比较两个对称位置 | 成对 DFS |
 | 明确要求逐层输出或统计 | BFS |
 
-## 9. 常见错误
+## 10. 常见错误
 
 ```text
 没有定义递归返回值含义，左右结果无法组合；
@@ -141,16 +174,19 @@ node.left.val < node.val < node.right.val
 层序遍历在 for 循环中直接使用不断变化的 queue.size()；
 平衡树重复计算高度，退化为 O(n²)；
 BST 只比较父子节点，没有传递祖先范围；
-对称树比较了同方向孩子，而不是交叉位置。
+对称树比较了同方向孩子，而不是交叉位置；
+修改子树后没有接住递归返回的新根；
+删除 BST 节点时未先处理零孩子和单孩子，却直接在空右子树中寻找后继；
+寻找 LCA 时只检查当前节点的直接孩子，没有汇总整棵左右子树的结果。
 ```
 
-## 10. 记忆主线
+## 11. 记忆主线
 
 ```text
 递归先写契约，再写 base case。
 需要左右子树信息后再判断当前节点 → 后序 DFS。
 需要祖先约束 → 参数向下传。
 需要子树结果 → 返回值向上传。
+需要修改树结构 → 返回处理后的子树新根，并由父层重新连接。
 需要逐层处理 → BFS + 固定 levelSize。
 ```
-
