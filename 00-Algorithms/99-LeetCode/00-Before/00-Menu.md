@@ -2,18 +2,19 @@
 
 ## 当前完成情况
 
-截至 2026-09-11，前四阶段已完成，HashMap / HashSet 专题完成了前 17 题。这里按 menu 已完成清单与本次口头确认记录进度；没有单独题解不等于未完成，完成题目也不等于已经通过独立迁移检验。
+截至 2026-09-11，前四阶段已完成，HashMap / HashSet 专题的 18 题已完成，当前滑动窗口主线完成了 643。这里按 menu 已完成清单、本轮解题记录与口头确认记录进度；没有单独题解不等于未完成，完成题目也不等于已经通过独立迁移检验。
 
 - 第一批基础题：20 题
 - 第二批基础加强题：20 题
 - 第三批进阶入门题：18 题
 - 第四阶段核心进阶：新增 36 题（跨阶段复习题去重）
-- 第五阶段 HashMap / HashSet：新增 17 题；149 尚未完成
-- 当前清单累计完成：**111 道不重复题目**
+- 第五阶段 HashMap / HashSet：新增 18 题，包含本次完成的 149
+- 当前 Sliding Window 主线：新增 1 题，643
+- 当前清单累计完成：**113 道不重复题目**
 
-统计口径：前四阶段按题号去重为 94 题，本轮新增 17 题，共 111 题。原先的“约 97 题”与表格不一致，本次一并纠正。149、416 不计入完成；平台上未录入本清单的其他题不在此统计中。
+统计口径：前四阶段按题号去重为 94 题，加上 HashMap / HashSet 的 18 题及本轮滑动窗口的 643，共 113 题。416 仍不计入完成；平台上未录入本清单的其他题不在此统计中。
 
-**当前下一题：643. Maximum Average Subarray I；当前主线：Sliding Window（滑动窗口）。**
+**当前下一题：1456. Maximum Number of Vowels in a Substring of Given Length；当前主线：Sliding Window（滑动窗口）。**
 
 已经覆盖的能力：
 
@@ -306,7 +307,7 @@ DP 目前只保留已经走完的打家劫舍与网格路径两条线，具体�
 
 ### 当前进度（2026-09-11）
 
-按本次确认，原路线前 17 题已经完成，仅剩最后的 `149. Max Points on a Line`（Hard）。下表记录完成进度；能否独立迁移仍要结合后续新题中的表现判断。
+原路线 18 题均已完成。本轮补完 `149. Max Points on a Line`（Hard）：自己的 `double` 版本在修正单点初始化、整数除法和正负零后通过，并补充学习了 GCD 约分。下表记录完成进度；能否独立迁移仍要结合后续新题中的表现判断。
 
 入口：[[HashMap HashSet Problems Summary]]。笔记只记录实际遇到、值得复习的问题；没有单独题解的题目仍按本次确认计入完成。已有 [[07-202 - Happy Number]] 的数位存储与状态判环、[[08-36 - Valid Sudoku]] 的分区域去重与坐标换算等复盘继续保留。
 
@@ -348,13 +349,13 @@ DP 目前只保留已经走完的打家劫舍与网格路径两条线，具体�
 
 这组覆盖桶与冲突处理、key-value 更新、数组下标映射、按 key 分组后二分查询，以及用点集判断二维关系。
 
-### 待完成 / 暂存选做
+### 04. 几何方向与 key 规范化
 
 | LeetCode | Problem | Difficulty | 状态 |
 | -------- | ------- | ---------- | ---- |
-| 149 | [Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) | Hard | 未完成；暂存，不计入完成数 |
+| 149 | [[14-149 - Max Points on a Line\|Max Points on a Line]] | Hard | 已完成；保留自己的 double 解法与 GCD 推导复盘 |
 
-149 涉及固定一个点、按规范化斜率分组，以及最大公约数、符号和水平／竖直方向的处理。它可以以后作为 key 设计的进阶练习，不作为进入滑动窗口的前置要求。题目保证坐标点互不相同，无需额外设计重复点计数。
+149 的复习重点是固定基准点后再按方向分组、数学等价如何映射到相同的 key，以及 GCD 为什么可以反复取余。单题笔记保留了 `1071` 与 `462` 的完整例子；完成浮点版本不等于 GCD 推导已经熟练，后续可通过口头复述检查。题目保证坐标点互不相同，无需额外设计重复点计数。
 
 ### 留作后续巩固的概念检查
 
@@ -375,7 +376,9 @@ DP 目前只保留已经走完的打家劫舍与网格路径两条线，具体�
 
 ### 当前起点与选择理由
 
-**下一题：643. Maximum Average Subarray I。** 以下练习均未出现在当前已完成清单或单题笔记中，全部按未完成安排。
+**已完成：643. Maximum Average Subarray I；下一题：1456. Maximum Number of Vowels in a Substring of Given Length。** 643 的复盘见 [[09-643-Maximum Average Subarray I]]，其余下列练习仍按未完成安排，沿用既定顺序。
+
+643 本轮记录了两处实际错误：`left` 已在上一轮递增，移出的应是旧窗口左端；`(double) (sum / k)` 在整数除法之后转换，已经丢失小数。优化时比较窗口总和、最后除一次 `k` 即可，原来的固定窗口思路已经达到最优 `O(n)` 时间和 `O(1)` 额外空间。
 
 前两批已经做过 `3、209、567、438、76`，本轮只把它们作为概念参照。接下来补齐定长窗口、可变窗口、求最长与求最短、统计子数组、恰好 K，以及窗口最值之间的联系。
 
@@ -387,12 +390,12 @@ DP 目前只保留已经走完的打家劫舍与网格路径两条线，具体�
 
 ### 第一层：定长窗口——先把加入和移出做稳
 
-| Order | LeetCode | Problem | Difficulty | 核心训练 |
-| ----- | -------- | ------- | ---------- | -------- |
-| 1 | 643 | [Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/) | Easy | 维护固定长度的和；处理首个窗口、负数与平均值 |
-| 2 | 1456 | [Maximum Number of Vowels in a Substring of Given Length](https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/) | Medium | 把窗口和迁移为满足某个条件的字符数量 |
-| 3 | 1343 | [Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold](https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/) | Medium | 从求最值变为统计满足条件的定长窗口 |
-| 4 | 2461 | [Maximum Sum of Distinct Subarrays With Length K](https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/) | Medium | 同时维护窗口和与频次，判断窗口内是否有重复 |
+| Order | LeetCode | Problem | Difficulty | 核心训练 | 状态 |
+| ----- | -------- | ------- | ---------- | -------- | ---- |
+| 1 | 643 | [[09-643-Maximum Average Subarray I\|Maximum Average Subarray I]] | Easy | 维护固定长度的和；处理首个窗口、负数与平均值 | 已完成 |
+| 2 | 1456 | [Maximum Number of Vowels in a Substring of Given Length](https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/) | Medium | 把窗口和迁移为满足某个条件的字符数量 | 下一题 |
+| 3 | 1343 | [Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold](https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/) | Medium | 从求最值变为统计满足条件的定长窗口 | 未完成 |
+| 4 | 2461 | [Maximum Sum of Distinct Subarrays With Length K](https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/) | Medium | 同时维护窗口和与频次，判断窗口内是否有重复 | 未完成 |
 
 整理重点：明确区间边界、何时形成完整窗口、加入与移出的对称关系。2461 中频次降到零时应删除对应 key，或同步减少单独维护的种类数；窗口和需要按数据范围选用 `long`。
 
