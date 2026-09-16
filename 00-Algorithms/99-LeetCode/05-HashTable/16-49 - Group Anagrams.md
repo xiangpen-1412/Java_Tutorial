@@ -1,4 +1,4 @@
-# LeetCode 49：Group Anagrams 背后的知识
+# 49. Group Anagrams：核心总结
 
 ## 1. 题目核心
 

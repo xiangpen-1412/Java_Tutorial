@@ -1,20 +1,43 @@
 # Array 已做题目总结：先识别数据性质，再选择指针或哈希结构
 
-这份总结只整理当前 `01-Array` 中已经存在的题目。数组只是输入形式，真正决定解法的是：是否有序、是否要求原地修改、是否研究连续区间、是否需要快速查找对应值。
+这份总结以 `01-Array` 中的双指针与滑动窗口题为主，并保留与哈希方法的对比。Two Sum 和 Group Anagrams 的笔记已归入 `05-HashTable`。数组只是输入形式，真正决定解法的是：是否有序、是否要求原地修改、是否研究连续区间、是否需要快速查找对应值。
+
+Array 题目按主要解题模式放在以下子目录中；滑动窗口使用统一入口，再在内部区分定长与变长：
+
+| 子目录 | 题型 | 已有题目 |
+| --- | --- | --- |
+| `01-Opposite Two Pointers` | 相向双指针 | 125、167、15 |
+| `02-Read Write Pointers` | 同向读写指针，原地整理有效区域 | 283、26 |
+| `03-Sliding Window/01-Fixed Length` | 滑动窗口 → 定长 | 643、1343、2461 |
+| `03-Sliding Window/02-Variable Length` | 滑动窗口 → 变长 | 3、1208、424、1695、1234、1658、713 |
+
+`Summary` 保留本总结。分类依据是主要解法，因此字符串题也可以按双指针或滑动窗口归入对应目录。
+
+哈希题统一从 [[HashMap HashSet Problems Summary]] 查阅。以下表格保留两道已迁移题目的链接，方便对比方法。
+
+近期滑动窗口的题意索引、窗口内外的区别、最长/最短/计数的更新时机，以及指针总工作量，集中见 [[Sliding Window Problems Summary]]。2461 本轮只整理题意和候选资格，未据此补写个人实现。
 
 ## 1. 已覆盖的题型
 
 | 题目 | 题目类型 | 主要方法 | 核心判断 |
 | --- | --- | --- | --- |
-| [[01-1-Two Sum]] | 无序数组找两数和 | HashMap | 查找 `target - current` 是否出现过 |
+| [[15-1 - Two Sum]] | 无序数组找两数和（已归入哈希专题） | HashMap | 查找 `target - current` 是否出现过 |
 | [[02-125-Valid Palindrome]] | 两端字符配对 | 相向双指针 | 跳过无效字符后比较左右字符 |
 | [[03-3-Longest Substring Without Repeating Characters]] | 连续区间满足无重复 | 滑动窗口 | 右边扩张，冲突时移动左边 |
 | [[04-283-Move Zeroes]] | 原地稳定搬移 | 读写指针 | 把非零元素依次写到前面 |
 | [[05-167-Two Sum II - Input Array Is Sorted]] | 有序数组找两数和 | 相向双指针 | 和太小移左边，和太大移右边 |
 | [[06-15-3Sum]] | 找所有不重复三元组 | 排序 + 固定一点 + 双指针 | 三数问题降为有序两数问题 |
-| [[07-49-Group Anagrams]] | 按共同特征分组 | HashMap + 标准化 key | 同一组字符串产生相同 key |
+| [[16-49 - Group Anagrams]] | 按共同特征分组（已归入哈希专题） | HashMap + 标准化 key | 同一组字符串产生相同 key |
 | [[08-26-Remove Duplicates from Sorted Array]] | 有序数组原地去重 | 读写指针 | 只把新值写入有效区域 |
 | [[09-643-Maximum Average Subarray I]] | 长度恰好为 `k` 的连续子数组 | 固定长度滑动窗口 | 相邻窗口只差移出、加入各一个元素；固定分母下比较总和 |
+| [[10-1343-Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold]] | 长度恰好为 `k` 的达标窗口计数 | 固定长度滑动窗口 | 平均值达标转成 `sum >= k * threshold`；每个完整窗口判断一次 |
+| [[11-2461-Maximum Sum of Distinct Subarrays With Length K]] | 定长、内部互异片段的最大总和 | 固定长度窗口 + 资格判断 | 连续、恰好 `k` 个、内部互异必须同时满足 |
+| [[12-1208-Get Equal Substrings Within Budget]] | 转换费用不超预算的最长对应子串 | 非负费用窗口 | 同下标绝对差相加，超预算时收缩 |
+| [[13-424-Longest Repeating Character Replacement]] | 修改次数受限的最长相同字母片段 | 字符频次窗口 | 最少修改次数 = 长度 - 最高频次；历史最大值另有不变量 |
+| [[14-1695-Maximum Erasure Value]] | 无重复连续子数组的最大总和 | 频次或存在性 + 窗口和 | 排除重复，正数保证最长合法后缀有最大和 |
+| [[15-1234-Replace the Substring for Balanced String]] | 使整串四种字符等量的最短替换片段 | 窗口外计数 | 外部各数量不超过 `n / 4`；可行时先记录再收缩 |
+| [[16-1658-Minimum Operations to Reduce X to Zero]] | 两端删除使 `x` 恰好归零的最少次数 | 转换为最长保留区间 | 保留和必须等于 `total - x`，答案是 `n - maxLen` |
+| [[17-713-Subarray Product Less Than K]] | 乘积严格小于 `k` 的全部子数组数量 | 乘积窗口 + 固定右端计数 | 合法起点为 `left ... right`，每轮新增窗口长度个 |
 
 ## 2. HashMap：从“向后寻找”改成“查询已知信息”
 
@@ -125,6 +148,8 @@ right 是新加入的下标 → 移出下标为 right - k
 应先明确 `sum` 对应的区间，再写更新下标。如果沿用“上一轮末尾已经执行 `left++`”的结构，此时移出的应为 `nums[left - 1]`，不能移出仍在新窗口里的 `nums[left]`。
 
 所有候选窗口的分母都是同一个正数 `k`，所以只需比较总和，最后一次浮点除法得到平均值。第一个窗口完整求和，以后每次 `O(1)` 更新，总时间 `O(n)`、额外空间 `O(1)`。允许负数不影响这个更新等式；若窗口长度变化，就不能直接用最大总和代替最大平均值。
+
+[[10-1343-Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold]] 复用同一套窗口移动方式，但目标改为统计达标窗口数。因为 `k > 0`，平均值大于等于 `threshold` 等价于 `sum >= k * threshold`，无需实际计算平均值。先检查第一个窗口，之后每次移出、加入完成后再检查，总共覆盖 `n - k + 1` 个窗口。窗口不达标时也保持长度为 `k`，继续向右移动。
 
 ## 5. 排序的作用不只是让结果有序
 
