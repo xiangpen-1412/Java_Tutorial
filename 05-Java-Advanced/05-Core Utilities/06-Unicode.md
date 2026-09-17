@@ -1,5 +1,7 @@
 # Unicode
 
+> **从头学习请先读：[Character Encoding — 渐进讲义](../../02-Java-Basics/00-Character-Encoding/00-Reading-Guide.md)。** 新讲义按 Lecture 01–11 逐步解释编号、UTF-8/UTF-16 转换规则、Java 写法、文件流程和 Normalizer；本页保留为学完后的速查笔记。
+
 ## 1. What is Unicode?
 
 Unicode is a universal standard for representing text.
@@ -119,13 +121,15 @@ U+0800   - U+FFFF   -> 3 bytes
 U+10000  - U+10FFFF -> 4 bytes
 ```
 
+The three-byte range excludes U+D800–U+DFFF, which is reserved for surrogate code points. Valid UTF-8 encodes Unicode scalar values, not isolated surrogates.
+
 ASCII characters use the same byte values in UTF-8 as they do in ASCII. This compatibility is one reason UTF-8 became widely adopted.
 
 Advantages of UTF-8 include:
 
 - compatibility with ASCII
 - compact storage for English-heavy text
-- support for every Unicode code point
+- support for every Unicode scalar value
 - no byte-order ambiguity
 - broad support across browsers, APIs, operating systems, and databases
 
@@ -262,7 +266,7 @@ byte[] bytes = text.getBytes();
 String restored = new String(bytes);
 ```
 
-The default charset can differ between machines, runtime versions, containers, and operating systems.
+JDK 18 made UTF-8 the default charset for Java SE APIs; older releases commonly depend on the environment, and configuration or console boundaries can still matter. Explicitly specifying the charset documents the format of the data being read or written.
 
 ---
 

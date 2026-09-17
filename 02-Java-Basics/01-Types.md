@@ -21,6 +21,8 @@ Understanding this distinction is foundational for **all Java behavior**.
 ---
 ## 2. Primitive Types
 
+> 字符编码专题：如果 `char`、UTF-16、Unicode code point 的关系还不清楚，从 [Character Encoding — Lecture 01](00-Character-Encoding/01-Why-Unicode.md) 开始。完整顺序见[课程入口](00-Character-Encoding/00-Reading-Guide.md)，里面会逐步手算 UTF-8、UTF-16，再解释 Java String。
+
 ### 2.1 Definition
 
 Primitive types store their **actual values directly**.  
