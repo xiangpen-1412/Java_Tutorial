@@ -2,25 +2,27 @@
 
 ## 当前完成情况
 
-截至 2026-09-11，前四阶段已完成，HashMap / HashSet 专题的 18 题已完成，当前滑动窗口主线完成了 643。这里按 menu 已完成清单、本轮解题记录与口头确认记录进度；没有单独题解不等于未完成，完成题目也不等于已经通过独立迁移检验。
+截至 2026-09-20，前四阶段已完成，HashMap / HashSet 专题的 18 题已完成；滑动窗口前五层共 17 题，加上本轮确认完成的 239，共 18 题记为已完成，余下 1438。这里按 menu 已完成清单、解题记录与口头确认记录进度；没有单独题解不等于未完成，完成题目也不等于已经通过独立迁移检验。
 
 - 第一批基础题：20 题
 - 第二批基础加强题：20 题
 - 第三批进阶入门题：18 题
 - 第四阶段核心进阶：新增 36 题（跨阶段复习题去重）
 - 第五阶段 HashMap / HashSet：新增 18 题，包含本次完成的 149
-- 当前 Sliding Window 主线：新增 1 题，643
-- 当前清单累计完成：**113 道不重复题目**
+- 当前 Sliding Window 主线：新增 18 题，前五层与第六层的 239 已完成
+- 当前清单累计完成：**130 道不重复题目**
 
-统计口径：前四阶段按题号去重为 94 题，加上 HashMap / HashSet 的 18 题及本轮滑动窗口的 643，共 113 题。416 仍不计入完成；平台上未录入本清单的其他题不在此统计中。
+统计口径：前四阶段按题号去重为 94 题，加上 HashMap / HashSet 的 18 题及滑动窗口主线的 18 题，共 130 题。滑动窗口这 18 题为 643、1456、1343、2461、904、1004、1208、424、1695、1234、1658、713、1358、2962、930、1248、992、239；这里按用户确认登记完成，不代表每题都在本轮展示并核验过代码。416、1438 暂不计入完成；平台上未录入本清单的其他题不在此统计中。
 
-**当前下一题：1456. Maximum Number of Vowels in a Substring of Given Length；当前主线：Sliding Window（滑动窗口）。**
+**当前下一题：1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit；当前主线仍是 Sliding Window（滑动窗口）。**
+
+**完成 1438、收尾滑动窗口后的下一主线：Prefix Sum（前缀和与区间统计深化），首题是 525. Contiguous Array。** 下面已列出新题顺序；该模块尚未开始，不计入当前完成数量。按题型查笔记可直接打开 [[00-滑动窗口分类导航]]。
 
 已经覆盖的能力：
 
 - HashMap / HashSet：存在性、计数、双向映射、下标与状态、key 设计、哈希表实现、组合结构
 - Two Pointers：左右夹逼、快慢指针、原地覆盖
-- Sliding Window：固定窗口、可变窗口、字符计数窗口
+- Sliding Window：定长窗口、最长与最短区间、至多 / 至少 / 恰好 K 计数、单调队列维护定长最值
 - Binary Search：基础二分、二维矩阵二分
 - Stack / Monotonic Stack：括号匹配、最小栈、下一个更大元素
 - Linked List：反转、合并、找环、找中点、删除倒数节点、相交链表
@@ -374,11 +376,15 @@ DP 目前只保留已经走完的打家劫舍与网格路径两条线，具体�
 
 ## 当前唯一主线：Sliding Window（滑动窗口）做透
 
-### 当前起点与选择理由
+### 当前进度与选择理由
 
-**已完成：643. Maximum Average Subarray I；下一题：1456. Maximum Number of Vowels in a Substring of Given Length。** 643 的复盘见 [[09-643-Maximum Average Subarray I]]，其余下列练习仍按未完成安排，沿用既定顺序。
+**截至 2026-09-20，按用户确认，第一至第五层及第六层的 239 已完成，下一题是 1438。** 本轮新增 [[23-239-Sliding Window Maximum]]，保留自己的堆方案、错误例子、单调队列推导和 Deque 的双端用途。此前新增的 1358、2962、930、1248、992 继续保留；方法之间的联系统一见 [[Sliding Window Problems Summary]]。
 
-643 本轮记录了两处实际错误：`left` 已在上一轮递增，移出的应是旧窗口左端；`(double) (sum / k)` 在整数除法之后转换，已经丢失小数。优化时比较窗口总和、最后除一次 `k` 即可，原来的固定窗口思路已经达到最优 `O(n)` 时间和 `O(1)` 额外空间。
+实际笔记目录已在 [[00-滑动窗口分类导航]] 中细分：可变窗口按“最长区间与最大得分、最短区间与反向转换、至多或小于计数、至少与覆盖计数、恰好 K 计数”归档。239 放在定长窗口中；菜单的第六层是学习顺序，单调队列是维护工具，不是与定长 / 可变并列的窗口长度类别。
+
+本轮直接看到 1248 的正确 cal 结构、1358 的补集实现与修正，以及 930 的失败计数方式和推导。992 等题未在本轮展示独立完整实现，不据此否定完成状态，也不直接标为独立熟练。继续练习时重点检查是否能自己说明“为什么能移走 left”和“这一轮究竟数了哪些起止位置”。
+
+643 的原有复盘保留两处实际错误：`left` 已在上一轮递增，移出的应是旧窗口左端；`(double) (sum / k)` 在整数除法之后转换，已经丢失小数。优化时比较窗口总和、最后除一次 `k` 即可，原来的固定窗口思路已经达到最优 `O(n)` 时间和 `O(1)` 额外空间。
 
 前两批已经做过 `3、209、567、438、76`，本轮只把它们作为概念参照。接下来补齐定长窗口、可变窗口、求最长与求最短、统计子数组、恰好 K，以及窗口最值之间的联系。
 
@@ -393,9 +399,9 @@ DP 目前只保留已经走完的打家劫舍与网格路径两条线，具体�
 | Order | LeetCode | Problem | Difficulty | 核心训练 | 状态 |
 | ----- | -------- | ------- | ---------- | -------- | ---- |
 | 1 | 643 | [[09-643-Maximum Average Subarray I\|Maximum Average Subarray I]] | Easy | 维护固定长度的和；处理首个窗口、负数与平均值 | 已完成 |
-| 2 | 1456 | [Maximum Number of Vowels in a Substring of Given Length](https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/) | Medium | 把窗口和迁移为满足某个条件的字符数量 | 下一题 |
-| 3 | 1343 | [Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold](https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/) | Medium | 从求最值变为统计满足条件的定长窗口 | 未完成 |
-| 4 | 2461 | [Maximum Sum of Distinct Subarrays With Length K](https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/) | Medium | 同时维护窗口和与频次，判断窗口内是否有重复 | 未完成 |
+| 2 | 1456 | [Maximum Number of Vowels in a Substring of Given Length](https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/) | Medium | 把窗口和迁移为满足某个条件的字符数量 | 已完成，按本轮确认 |
+| 3 | 1343 | [Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold](https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/) | Medium | 从求最值变为统计满足条件的定长窗口 | 已完成 |
+| 4 | 2461 | [Maximum Sum of Distinct Subarrays With Length K](https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/) | Medium | 同时维护窗口和与频次，判断窗口内是否有重复 | 已完成，按本轮确认 |
 
 整理重点：明确区间边界、何时形成完整窗口、加入与移出的对称关系。2461 中频次降到零时应删除对应 key，或同步减少单独维护的种类数；窗口和需要按数据范围选用 `long`。
 
@@ -440,11 +446,11 @@ DP 目前只保留已经走完的打家劫舍与网格路径两条线，具体�
 
 ### 第五层：恰好 K——将相等条件拆成可维护的范围
 
-| Order | LeetCode | Problem | Difficulty | 核心训练 |
-| ----- | -------- | ------- | ---------- | -------- |
-| 15 | 930 | [Binary Subarrays With Sum](https://leetcode.com/problems/binary-subarrays-with-sum/) | Medium | 在 0/1 数组中将恰好目标和的计数转换为范围计数 |
-| 16 | 1248 | [Count Number of Nice Subarrays](https://leetcode.com/problems/count-number-of-nice-subarrays/) | Medium | 将奇偶性转成 0/1 贡献，迁移上一题的计数方法 |
-| 17 | 992 | [Subarrays with K Different Integers](https://leetcode.com/problems/subarrays-with-k-different-integers/) | Hard | 结合频次表、种类数与恰好 K 的计数，作为综合检验 |
+| Order | LeetCode | Problem                                                                                                   | Difficulty | 核心训练                      |
+| ----- | -------- | --------------------------------------------------------------------------------------------------------- | ---------- | ------------------------- |
+| 15    | 930      | [Binary Subarrays With Sum](https://leetcode.com/problems/binary-subarrays-with-sum/)                     | Medium     | 在 0/1 数组中将恰好目标和的计数转换为范围计数 |
+| 16    | 1248     | [Count Number of Nice Subarrays](https://leetcode.com/problems/count-number-of-nice-subarrays/)           | Medium     | 将奇偶性转成 0/1 贡献，迁移上一题的计数方法  |
+| 17    | 992      | [Subarrays with K Different Integers](https://leetcode.com/problems/subarrays-with-k-different-integers/) | Hard       | 结合频次表、种类数与恰好 K 的计数，作为综合检验 |
 
 先从集合包含关系推导 `exactly(K) = atMost(K) - atMost(K - 1)`，再定义辅助函数；分别处理 `K = 0`、负阈值和空窗口。能做差不代表 `atMost` 一定能用普通窗口求出，必须检查指标随窗口扩张、收缩的变化。
 
@@ -454,14 +460,14 @@ DP 目前只保留已经走完的打家劫舍与网格路径两条线，具体�
 
 ### 第六层：窗口最值——单调队列进阶
 
-这是本模块的后段扩展，等基础窗口和计数稳定后再开启。
+这是本模块的后段扩展。目前 239 已完成并整理复盘，接下来做 1438。
 
-| Order | LeetCode | Problem | Difficulty | 核心训练 |
-| ----- | -------- | ------- | ---------- | -------- |
-| 18 | 239 | [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) | Hard | 用候选下标维护定长窗口最大值，理解过期与淘汰 |
-| 19 | 1438 | [Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/) | Medium | 用两个单调队列维护可变窗口的最大值和最小值 |
+| Order | LeetCode | Problem | Difficulty | 核心训练 | 状态 |
+| ----- | -------- | ------- | ---------- | -------- | ---- |
+| 18 | 239 | [[23-239-Sliding Window Maximum\|Sliding Window Maximum]] | Hard | 用候选下标维护定长窗口最大值，理解过期与淘汰 | 已完成，按本轮确认；已整理堆与单调队列 |
+| 19 | 1438 | [Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/) | Medium | 用两个单调队列维护可变窗口的最大值和最小值 | 待完成；当前下一题 |
 
-进入 239 前，用一个短数组手画候选队列：先辨认队首过期下标，再解释队尾为什么可以删除被新元素支配的候选值。单调栈经验可以帮助理解淘汰，但队列还要负责窗口过期；这里先学单个定长最大值，再组合成 1438 的可变极差约束，因此顺序不按 Easy / Medium / Hard 机械排列。
+239 的复盘用 `[1,3,1,2,0,5]、k=3` 手画候选队列：队首处理过期下标，队尾删除被新元素支配的候选。单调栈经验可以帮助理解淘汰，但队列还要负责窗口过期；这里先学单个定长最大值，再组合成 1438 的可变极差约束，因此顺序不按 Easy / Medium / Hard 机械排列。239 的完成状态按用户确认登记，讲解过单调队列不等于本轮已展示并验证独立的单调队列实现。
 
 这一层单独记录掌握状态。如果暂缓，写明“基础窗口与计数已掌握，单调队列待进阶”，不用一道难题代替整个模块的能力判断。
 
@@ -487,4 +493,63 @@ DP 目前只保留已经走完的打家劫舍与网格路径两条线，具体�
 7. 在新的变种中持续正确使用频次表，并能比较窗口与前缀和等候选方法。
 8. 若已进入单调队列扩展，能解释过期下标和被支配候选值的区别。
 
-后续根据独立解题、隔一段时间的概念回忆和新变种表现，更新实际掌握情况，再选择下一个模块。Greedy 与 DP 进阶继续暂缓。
+后续根据独立解题、隔一段时间的概念回忆和新变种表现，更新实际掌握情况。Greedy 与 DP 进阶继续暂缓。
+
+---
+
+## 下一主线：Prefix Sum（前缀和与区间统计深化）
+
+### 启动时间与学习目标
+
+**239 已完成；完成 1438 并收尾滑动窗口后进入本模块，第一题是 525。** 这是已经安排好的下一主线，不再只列为候选。当前状态为待开始，以下新题均不计入已完成数量；仍然一次只推进一个主模块。
+
+收尾滑动窗口时，简短复述两种计数公式、恰好 K 的范围转换，以及单调队列的过期与淘汰。后续若发现具体缺口，再针对性补新题；不为换模块额外设置一长串必刷旧题。
+
+选择前缀和是因为刚练过的 HashMap 频次和连续区间计数可以直接衔接，而区间条件未必总能支持“超标就缩窗”。这一模块要学会判断：什么时候可以安全移走左端点，什么时候应保留历史前缀信息，按当前目标查询对应状态。
+
+已有基础为 303、560、238，只通过 [[Prefix Sum Problems Summary]] 回顾概念，不重新安排提交。930、1248 也只作方法对照，不当作新的练习重复计数。新题中先看自己的想法和实现，菜单只记录训练目标，不预先给完整解法。
+
+### 第一层：前缀状态——区分求最长与统计数量
+
+| 顺序 | LeetCode | Problem | 难度 | 核心训练 | 状态 |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 525 | [Contiguous Array](https://leetcode.com/problems/contiguous-array/) | Medium | 0 和 1 数量相等的最长区间；把平衡条件转换成可查询状态，判断应保存哪种位置信息 | 待开始；新模块首题 |
+| 2 | 1524 | [Number of Sub-arrays With Odd Sum](https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/) | Medium | 和为奇数的子数组数量；从记录位置转为累计匹配次数，并处理答案取模 | 待开始 |
+
+这一层要能说明 Map 或数组的 value 为什么有时保存位置、有时保存次数。与滑动窗口对比时，从条件是否支持安全排除起点出发，不能只凭输入有无负数选择算法；例如和的奇偶性在加入正数后也可能反复变化。
+
+### 第二层：余数状态——从数量迁移到存在性与长度限制
+
+| 顺序 | LeetCode | Problem | 难度 | 核心训练 | 状态 |
+| --- | --- | --- | --- | --- | --- |
+| 3 | 974 | [Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k/) | Medium | 统计和能被 k 整除的子数组；确定应保存的前缀状态，处理负数与余数 | 待开始 |
+| 4 | 523 | [Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/) | Medium | 判断是否存在长度至少为 2、和为 k 的倍数的子数组；重新选择历史信息的保存方式 | 待开始 |
+
+先做数量问题，再做条件相近但答案改为存在性的问题，避免机械复用同一个 value。单独检查零元素、从下标 0 开始的区间，以及查询与登记当前状态的先后关系。
+
+### 第三层：二维前缀——矩形查询与边界迁移
+
+| 顺序 | LeetCode | Problem | 难度 | 核心训练 | 状态 |
+| --- | --- | --- | --- | --- | --- |
+| 5 | 304 | [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) | Medium | 多次查询矩形区域之和；从一维前缀定义推广到二维，解释重叠部分如何处理 | 待开始 |
+| 6 | 1314 | [Matrix Block Sum](https://leetcode.com/problems/matrix-block-sum/) | Medium | 为矩阵每个位置求周围块的总和；复用矩形查询并处理靠边时的范围裁剪 | 待开始 |
+
+这一层先画区域再写下标，能够说明预处理负责什么、单次查询负责什么。不能只背二维公式而说不清哪些区域被重复扣除。
+
+### 核心完成后的扩展：按表现选择
+
+六道核心新题做完后，根据独立推导和新题迁移情况决定扩展；不把做满某个数量等同于掌握。
+
+- **差分与区间更新**：[1109. Corporate Flight Bookings](https://leetcode.com/problems/corporate-flight-bookings/) → [1094. Car Pooling](https://leetcode.com/problems/car-pooling/)。由“查询区间累计量”转向“多次修改区间，再恢复各位置状态”，继续练边界及累计含义。这是可选扩展，不与核心路线并行开新主线。
+- **二维计数综合**：[1074. Number of Submatrices That Sum to Target](https://leetcode.com/problems/number-of-submatrices-that-sum-to-target/)（Hard）。在二维查询和一维计数稳定后再尝试，检查如何组合已有方法；暂缓这题不代表前缀和基础未掌握。
+
+综合迁移检查题到时再从未做过的题中选择，不提前揭示所属模型。Greedy 与 DP 进阶仍不在本轮安排中。
+
+### 本模块掌握标准
+
+1. 能定义前缀状态的含义，解释区间条件为什么对应两个前缀之间的关系。
+2. 能根据求最长、计数或存在性，决定保存最早位置、出现次数还是其他信息。
+3. 能解释初始空前缀、先查历史再登记当前状态，以及零、负数、取模和数值范围带来的边界。
+4. 能比较普通阈值窗口与前缀方法的适用条件，不把“连续子数组”自动等同于其中一种。
+5. 能从图形推导二维查询，正确处理矩阵边缘和空前缀边界。
+6. 若进入差分扩展，能说清前缀累计与变化量恢复的关系，以及区间端点是否包含。
