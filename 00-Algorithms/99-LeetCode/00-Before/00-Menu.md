@@ -2,7 +2,7 @@
 
 ## 当前完成情况
 
-截至 2026-09-29，前四阶段已完成，HashMap / HashSet 专题的 18 题已完成；按本轮用户确认，滑动窗口主线 19 题全部完成，包含 1438。当前进入前缀和与区间统计深化，正在做 525。这里按 menu 已完成清单、解题记录与口头确认记录进度；没有单独题解不等于未完成，完成题目也不等于已经通过独立迁移检验。
+截至 2026-09-29，前四阶段已完成，HashMap / HashSet 专题的 18 题已完成；按本轮用户确认，滑动窗口主线 19 题全部完成，包含 1438。当前进入前缀和与区间统计深化，525、1524 已讨论并分别整理复盘，平台提交通过情况尚未确认。这里按 menu 已完成清单、解题记录与口头确认记录进度；没有单独题解不等于未完成，完成题目也不等于已经通过独立迁移检验。
 
 - 第一批基础题：20 题
 - 第二批基础加强题：20 题
@@ -10,14 +10,14 @@
 - 第四阶段核心进阶：新增 36 题（跨阶段复习题去重）
 - 第五阶段 HashMap / HashSet：新增 18 题，包含本次完成的 149
 - Sliding Window 主线：新增 19 题，六层全部完成
-- 当前 Prefix Sum 主线：525 进行中，暂未新增完成题目
+- 当前 Prefix Sum 主线：525、1524 已整理复盘；提交通过待确认，暂未新增完成题目
 - 当前清单累计完成：**131 道不重复题目**
 
-统计口径：前四阶段按题号去重为 94 题，加上 HashMap / HashSet 的 18 题及滑动窗口主线的 19 题，共 131 题。滑动窗口这 19 题为 643、1456、1343、2461、904、1004、1208、424、1695、1234、1658、713、1358、2962、930、1248、992、239、1438；这里按用户确认登记完成，不代表每题都在本轮展示并核验过代码。416、525 暂不计入完成；平台上未录入本清单的其他题不在此统计中。
+统计口径：前四阶段按题号去重为 94 题，加上 HashMap / HashSet 的 18 题及滑动窗口主线的 19 题，共 131 题。滑动窗口这 19 题为 643、1456、1343、2461、904、1004、1208、424、1695、1234、1658、713、1358、2962、930、1248、992、239、1438；这里按用户确认登记完成，不代表每题都在本轮展示并核验过代码。416、525、1524 暂不计入完成；平台上未录入本清单的其他题不在此统计中。
 
-**当前正在做：525. Contiguous Array；当前唯一主线是 Prefix Sum（前缀和与区间统计深化）。**
+**当前复盘：525. Contiguous Array 与 1524. Number of Sub-arrays With Odd Sum；当前唯一主线是 Prefix Sum（前缀和与区间统计深化）。**
 
-**Sliding Window（滑动窗口）主线已全部完成。** 前缀和已从 525 开始，下面保留后续新题顺序；525 尚未完成，不计入完成数量。前缀和已有基础笔记见 [[Prefix Sum Problems Summary]]；滑动窗口复习入口为 [[00-滑动窗口分类导航]]。
+**Sliding Window（滑动窗口）主线已全部完成。** 前缀和已从 525 开始，下面保留后续新题顺序；525、1524 已整理笔记，提交通过未确认，不计入完成数量。前缀和笔记见 [[Prefix Sum Problems Summary]]，已整体并入 `01-Array/04-Prefix Sum`；滑动窗口复习入口为 [[00-滑动窗口分类导航]]。
 
 已经覆盖的能力：
 
@@ -435,11 +435,11 @@ DP 目前只保留已经走完的打家劫舍与网格路径两条线，具体�
 
 ### 第四层：从求一个最优区间，到统计全部合法区间
 
-| Order | LeetCode | Problem | Difficulty | 核心训练 |
-| ----- | -------- | ------- | ---------- | -------- |
-| 12 | 713 | [Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/) | Medium | 固定右端点，推导这一轮可计入多少个合法起点 |
-| 13 | 1358 | [Number of Substrings Containing All Three Characters](https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/) | Medium | 从“至多”限制切换到“至少覆盖”，重新确定合法起点范围 |
-| 14 | 2962 | [Count Subarrays Where Max Element Appears at Least K Times](https://leetcode.com/problems/count-subarrays-where-max-element-appears-at-least-k-times/) | Medium | 将覆盖三个字符迁移成目标元素出现次数阈值 |
+| Order | LeetCode | Problem                                                                                                                                                 | Difficulty | 核心训练                        |
+| ----- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------------------- |
+| 12    | 713      | [Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/)                                                             | Medium     | 固定右端点，推导这一轮可计入多少个合法起点       |
+| 13    | 1358     | [Number of Substrings Containing All Three Characters](https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/)             | Medium     | 从“至多”限制切换到“至少覆盖”，重新确定合法起点范围 |
+| 14    | 2962     | [Count Subarrays Where Max Element Appears at Least K Times](https://leetcode.com/problems/count-subarrays-where-max-element-appears-at-least-k-times/) | Medium     | 将覆盖三个字符迁移成目标元素出现次数阈值        |
 
 整理重点：先画出固定右端点时所有合法左端点的范围，再推导计数公式；不能看到计数题就背 `right - left + 1`。说明为什么既没有漏计，也没有重复计。
 
@@ -502,7 +502,9 @@ DP 目前只保留已经走完的打家劫舍与网格路径两条线，具体�
 
 ### 启动时间与学习目标
 
-**2026-09-29：滑动窗口主线已全部完成，正式进入本模块，当前正在做 525. Contiguous Array。** 525 标记为进行中，其余核心新题待开始；以下新题均尚未计入已完成数量，仍然一次只推进一个主模块。
+**2026-09-29：滑动窗口主线已全部完成，正式进入本模块；525 与 1524 已讨论并分别整理复盘。** 525 记录完整 Java 答案，1524 记录自己的前缀数组思路、空前缀修正及每轮处理前后的状态。两题提交通过尚未确认，其余核心新题待开始，仍然一次只推进一个主模块。
+
+目录归类：前缀和是一种方法，笔记集中放在 `01-Array/04-Prefix Sum`，与数组下的双指针、滑动窗口方法并列。原有 303、560、238 及 [[Prefix Sum Problems Summary]] 一并归入，不再保留单独的顶层前缀目录；总入口见 [[Array Problems Summary]]。
 
 滑动窗口的 recall 可围绕两种计数公式、恰好 K 的范围转换，以及单调队列的过期与淘汰。后续若发现具体缺口，再针对性补新题；不为换模块额外设置一长串必刷旧题。
 
@@ -512,28 +514,28 @@ DP 目前只保留已经走完的打家劫舍与网格路径两条线，具体�
 
 ### 第一层：前缀状态——区分求最长与统计数量
 
-| 顺序 | LeetCode | Problem | 难度 | 核心训练 | 状态 |
-| --- | --- | --- | --- | --- | --- |
-| 1 | 525 | [Contiguous Array](https://leetcode.com/problems/contiguous-array/) | Medium | 0 和 1 数量相等的最长区间；把平衡条件转换成可查询状态，判断应保存哪种位置信息 | 进行中；2026-09-29 开始 |
-| 2 | 1524 | [Number of Sub-arrays With Odd Sum](https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/) | Medium | 和为奇数的子数组数量；从记录位置转为累计匹配次数，并处理答案取模 | 待开始 |
+| 顺序  | LeetCode | Problem                                                                          | 难度     | 核心训练                                      | 状态                       |
+| --- | -------- | -------------------------------------------------------------------------------- | ------ | ----------------------------------------- | ------------------------ |
+| 1   | 525      | [[04-525-Contiguous Array\|Contiguous Array]]                                    | Medium | 0 和 1 数量相等的最长区间；把平衡条件转换成可查询状态，判断应保存哪种位置信息 | 已整理推导与完整 Java 答案；提交通过待确认 |
+| 2   | 1524     | [[05-1524-Number of Sub-arrays With Odd Sum\|Number of Sub-arrays With Odd Sum]] | Medium | 和为奇数的子数组数量；从记录位置转为累计匹配次数，并处理答案取模          | 已整理个人思路与前中后状态逻辑；提交通过待确认  |
 
 这一层要能说明 Map 或数组的 value 为什么有时保存位置、有时保存次数。与滑动窗口对比时，从条件是否支持安全排除起点出发，不能只凭输入有无负数选择算法；例如和的奇偶性在加入正数后也可能反复变化。
 
 ### 第二层：余数状态——从数量迁移到存在性与长度限制
 
-| 顺序 | LeetCode | Problem | 难度 | 核心训练 | 状态 |
-| --- | --- | --- | --- | --- | --- |
-| 3 | 974 | [Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k/) | Medium | 统计和能被 k 整除的子数组；确定应保存的前缀状态，处理负数与余数 | 待开始 |
-| 4 | 523 | [Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/) | Medium | 判断是否存在长度至少为 2、和为 k 的倍数的子数组；重新选择历史信息的保存方式 | 待开始 |
+| 顺序  | LeetCode | Problem                                                                                     | 难度     | 核心训练                                     | 状态  |
+| --- | -------- | ------------------------------------------------------------------------------------------- | ------ | ---------------------------------------- | --- |
+| 3   | 974      | [Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k/) | Medium | 统计和能被 k 整除的子数组；确定应保存的前缀状态，处理负数与余数        | 待开始 |
+| 4   | 523      | [Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/)           | Medium | 判断是否存在长度至少为 2、和为 k 的倍数的子数组；重新选择历史信息的保存方式 | 待开始 |
 
 先做数量问题，再做条件相近但答案改为存在性的问题，避免机械复用同一个 value。单独检查零元素、从下标 0 开始的区间，以及查询与登记当前状态的先后关系。
 
 ### 第三层：二维前缀——矩形查询与边界迁移
 
-| 顺序 | LeetCode | Problem | 难度 | 核心训练 | 状态 |
-| --- | --- | --- | --- | --- | --- |
-| 5 | 304 | [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) | Medium | 多次查询矩形区域之和；从一维前缀定义推广到二维，解释重叠部分如何处理 | 待开始 |
-| 6 | 1314 | [Matrix Block Sum](https://leetcode.com/problems/matrix-block-sum/) | Medium | 为矩阵每个位置求周围块的总和；复用矩形查询并处理靠边时的范围裁剪 | 待开始 |
+| 顺序  | LeetCode | Problem                                                                                       | 难度     | 核心训练                               | 状态  |
+| --- | -------- | --------------------------------------------------------------------------------------------- | ------ | ---------------------------------- | --- |
+| 5   | 304      | [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) | Medium | 多次查询矩形区域之和；从一维前缀定义推广到二维，解释重叠部分如何处理 | 待开始 |
+| 6   | 1314     | [Matrix Block Sum](https://leetcode.com/problems/matrix-block-sum/)                           | Medium | 为矩阵每个位置求周围块的总和；复用矩形查询并处理靠边时的范围裁剪   | 待开始 |
 
 这一层先画区域再写下标，能够说明预处理负责什么、单次查询负责什么。不能只背二维公式而说不清哪些区域被重复扣除。
 
